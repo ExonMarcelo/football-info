@@ -1,24 +1,51 @@
-import { useEffect, useState } from "react";
-import { searchTeams } from "../../../services/apiFutbol";
+import { useState, useRef } from "react";
+import useTeams from "../../hooks/useTeams";
+
 
 function Home() {
-    const [teams, setTeams]= useState([])
-    const [loading, setLoading]= useState(false)
+    
+    const [formData, setFormData]= useState({query: ""})
+    const { teams, loading, getTeams } = useTeams();
+    const queryRef = useRef("");
+    
+    const onChange = (e) => {
+        const {name, value} = e.currentTarget;
+        setFormData({
+            [name]: value
+        })
+    }
 
-    useEffect(()=>{
-        const getData = async () => {
-            setLoading(true);
-            const dataTeams = await searchTeams({team: 'alianza'});
-            setTeams(dataTeams)
-            setLoading(false);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(formData.query !== queryRef.current){
+            queryRef.current = formData.query;
+            getTeams({team: formData.query});
         }
-        getData();
-    }, [])
-
+    }
+    
     return ( 
         <section>
             <div className="container results-container">
                 <h1 className="col-full">Buscador de Equipos</h1>
+                <div className="col-full">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <label>Ingresa el nombre del equipo</label>
+                            <input 
+                                type="text"
+                                name="query"
+                                id="query"
+                                placeholder="Barcelona"
+                                value={formData.query}
+                                onChange={onChange} />
+                        </div>
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+                {
+                    (teams.length === 0 && !loading)  &&
+                    <p>No se encontraron resultados</p>
+                }
                 {
                     loading ? 
                     <p>Cargando...</p> :

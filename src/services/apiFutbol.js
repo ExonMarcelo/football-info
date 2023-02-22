@@ -18,6 +18,7 @@ export const searchTeams = async ({team = 'barcelona'}) => {
         return data.response;
     }
     catch(e){
+        console.log("Error api")
         throw new Error('Ocurrió un error')
     }
 }
