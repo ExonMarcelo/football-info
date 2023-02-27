@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { searchTeams } from "../../services/apiFutbol";
+import { searchTeams } from "../services/apiFutbol";
 
 export default function useTeams(){
     const [teams, setTeams]= useState([]);
@@ -14,10 +14,12 @@ export default function useTeams(){
             const dataTeams = await searchTeams({team});
             if(!dataTeams){ return; }
             setTeams(dataTeams)
-            setLoading(false);
         }
         catch(e){
             throw new Error("Error al buscar los equipos")
+        }
+        finally{
+            setLoading(false);
         }
     }
 

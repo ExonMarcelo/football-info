@@ -1,9 +1,7 @@
 import { useState, useRef } from "react";
-import useTeams from "../../hooks/useTeams";
-
+import useTeams from "../../../hooks/useTeams";
 
 function Home() {
-    
     const [formData, setFormData]= useState({query: ""})
     const { teams, loading, getTeams } = useTeams();
     const queryRef = useRef("");
