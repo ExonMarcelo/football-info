@@ -1,0 +1,194 @@
+{
+    "get": "teams",
+    "parameters": {
+        "search": "alianz"
+    },
+    "errors": [],
+    "results": 9,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "team": {
+                "id": 1141,
+                "name": "Alianza Petrolera",
+                "code": "ALI",
+                "country": "Colombia",
+                "founded": 1991,
+                "national": false,
+                "logo": "https:\/\/media-3.api-sports.io\/football\/teams\/1141.png"
+            },
+            "venue": {
+                "id": 367,
+                "name": "Estadio Daniel Villa Zapata",
+                "address": "Estadio de B\u00e9isbol 26 de abril, Villa Ol\u00edmpica",
+                "city": "Barrancabermeja",
+                "capacity": 10400,
+                "surface": "grass",
+                "image": "https:\/\/media-3.api-sports.io\/football\/venues\/367.png"
+            }
+        },
+        {
+            "team": {
+                "id": 2548,
+                "name": "Alianza Universidad",
+                "code": "ALI",
+                "country": "Peru",
+                "founded": 1939,
+                "national": false,
+                "logo": "https:\/\/media.api-sports.io\/football\/teams\/2548.png"
+            },
+            "venue": {
+                "id": 1231,
+                "name": "Estadio Heraclio Tapia Le\u00f3n",
+                "address": null,
+                "city": "Hu\u00e1nuco",
+                "capacity": 20000,
+                "surface": "grass",
+                "image": "https:\/\/media-3.api-sports.io\/football\/venues\/1231.png"
+            }
+        },
+        {
+            "team": {
+                "id": 2553,
+                "name": "Alianza Lima",
+                "code": "LIM",
+                "country": "Peru",
+                "founded": 1901,
+                "national": false,
+                "logo": "https:\/\/media.api-sports.io\/football\/teams\/2553.png"
+            },
+            "venue": {
+                "id": 1230,
+                "name": "Estadio Alejandro Villanueva",
+                "address": "Calle Jir\u00f3n Abtao con Avenida Isabel La Cat\u00f3lica 821, La Victoria",
+                "city": "Lima",
+                "capacity": 35000,
+                "surface": "grass",
+                "image": "https:\/\/media-3.api-sports.io\/football\/venues\/1230.png"
+            }
+        },
+        {
+            "team": {
+                "id": 2560,
+                "name": "Alianza Atletico",
+                "code": null,
+                "country": "Peru",
+                "founded": 1920,
+                "national": false,
+                "logo": "https:\/\/media-3.api-sports.io\/football\/teams\/2560.png"
+            },
+            "venue": {
+                "id": 1229,
+                "name": "Estadio Municipal Melanio Coloma Calder\u00f3n",
+                "address": "Calle Brasil, Bellavista",
+                "city": "Sullana",
+                "capacity": 4000,
+                "surface": "grass",
+                "image": "https:\/\/media-3.api-sports.io\/football\/venues\/1229.png"
+            }
+        },
+        {
+            "team": {
+                "id": 2881,
+                "name": "Alianza FC",
+                "code": "ALI",
+                "country": "Panama",
+                "founded": 1963,
+                "national": false,
+                "logo": "https:\/\/media-3.api-sports.io\/football\/teams\/2881.png"
+            },
+            "venue": {
+                "id": 1207,
+                "name": "Estadio Rommel Fern\u00e1ndez Guti\u00e9rrez",
+                "address": "Avenida Jos\u00e9 Agustin Arango",
+                "city": "Ciudad de Panam\u00e1",
+                "capacity": 45000,
+                "surface": "grass",
+                "image": "https:\/\/media.api-sports.io\/football\/venues\/1207.png"
+            }
+        },
+        {
+            "team": {
+                "id": 4299,
+                "name": "Alianza",
+                "code": null,
+                "country": "El-Salvador",
+                "founded": 1958,
+                "national": false,
+                "logo": "https:\/\/media.api-sports.io\/football\/teams\/4299.png"
+            },
+            "venue": {
+                "id": 3284,
+                "name": "Estadio Cuscatl\u00e1n",
+                "address": "Calle Antigua a Huizucar",
+                "city": "San Salvador",
+                "capacity": 45925,
+                "surface": "grass",
+                "image": "https:\/\/media.api-sports.io\/football\/venues\/3284.png"
+            }
+        },
+        {
+            "team": {
+                "id": 11160,
+                "name": "Alianza Cutral C\u00f3",
+                "code": null,
+                "country": "Argentina",
+                "founded": null,
+                "national": false,
+                "logo": "https:\/\/media-3.api-sports.io\/football\/teams\/11160.png"
+            },
+            "venue": {
+                "id": 7455,
+                "name": "Estadio El Coloso del Ruca Quimey",
+                "address": "Avenida Eguinoa y Estaban Nolasco",
+                "city": "Cutral C\u00f3, Provincia del Neuqu\u00e9n",
+                "capacity": 16500,
+                "surface": "grass",
+                "image": "https:\/\/media.api-sports.io\/football\/venues\/7455.png"
+            }
+        },
+        {
+            "team": {
+                "id": 20248,
+                "name": "Alianza Beni",
+                "code": null,
+                "country": "Bolivia",
+                "founded": null,
+                "national": false,
+                "logo": "https:\/\/media.api-sports.io\/football\/teams\/20248.png"
+            },
+            "venue": {
+                "id": null,
+                "name": null,
+                "address": null,
+                "city": null,
+                "capacity": null,
+                "surface": null,
+                "image": null
+            }
+        },
+        {
+            "team": {
+                "id": 20518,
+                "name": "Alianza Lima W",
+                "code": null,
+                "country": "intl",
+                "founded": null,
+                "national": false,
+                "logo": "https:\/\/media-3.api-sports.io\/football\/teams\/20518.png"
+            },
+            "venue": {
+                "id": null,
+                "name": null,
+                "address": null,
+                "city": null,
+                "capacity": null,
+                "surface": null,
+                "image": null
+            }
+        }
+    ]
+}

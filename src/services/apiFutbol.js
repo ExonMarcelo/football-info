@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const baseUrl = "https://api-football-beta.p.rapidapi.com";
 
 const headersApi = {
@@ -7,21 +5,20 @@ const headersApi = {
     'X-RapidAPI-Host': 'api-football-beta.p.rapidapi.com'
 };
 
-const getConfig = (params={}) => {
-    return {
-        method: 'GET',
-        url: baseUrl +'/teams',
-        params: params,
-        headers: headersApi
-    };
-}
+const config = {
+    method: 'GET',
+    headers: headersApi
+};
 
-export const getLeagues = async () => {
-    const options = getConfig({league: '281', season: '2022'});
-      
-    await axios.request(options).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
+export const searchTeams = async ({team = 'barcelona'}) => {
+    try{
+        const url = `${baseUrl}/teams?search=${team}`;
+        const resp  = await fetch(url, config)
+        const data = await resp.json();
+        return data.response;
+    }
+    catch(e){
+        console.log("Error api")
+        throw new Error('Ocurrió un error')
+    }
 }
