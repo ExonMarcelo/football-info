@@ -65,8 +65,8 @@ function Home() {
                                             flex flex-col justify-center items-center
                                             " key={index}>
                                 <img src={team.logo} alt={team.name}/>
-                                <h4>{team.name}</h4>
-                                <p>{team.country} - {team.founded}</p>
+                                <h4 className="mt-2 mb-2 font-lato font-bold text-lg text-center leading-2">{team.name}</h4>
+                                <p className="font-lato text-center">{team.country} - {team.founded}</p>
                             </div>
                         )
                     }
