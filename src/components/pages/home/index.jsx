@@ -1,8 +1,11 @@
 import { useState, useRef } from "react";
 import useTeams from "../../../hooks/useTeams";
+import PortalModal from "../../molecules/modal";
 
 function Home() {
     const [formData, setFormData]= useState({query: ""})
+    const [showModalDetails, setShowModalDetails]= useState(false);
+    const [teamSelected, setTeamSelected]= useState({});
     const { teams, loading, getTeams } = useTeams();
     const queryRef = useRef("");
     const firstTimeRef = useRef(true);
@@ -21,6 +24,21 @@ function Home() {
             getTeams({team: formData.query});
             firstTimeRef.current = false;
         }
+    }
+
+    const viewInfoTeam = (team, stadium) =>{
+        setTeamSelected({
+            name: team.name,
+            founded: team.founded,
+            country: team.country,
+            logo: team.logo,
+            stadium: stadium.name,
+            imageStadium: stadium.image,
+            cityStadium: stadium.city,
+            capacityStadium: stadium.capacity,
+            locationStadium: stadium.address
+        });
+        setShowModalDetails(true)
     }
     
     return ( 
@@ -59,11 +77,12 @@ function Home() {
                     {
                         loading ? 
                         <p>Cargando...</p> :
-                        teams.map(({team}, index) => 
+                        teams.map(({team, stadium}, index) => 
                             <div className="col-span-2
                                             rounded-lg bg-slate-100 p-8
-                                            flex flex-col justify-center items-center
-                                            " key={index}>
+                                            flex flex-col justify-center items-center cursor-pointer
+                                            " key={index}
+                                            onClick={()=>{viewInfoTeam(team, stadium)}}>
                                 <img src={team.logo} alt={team.name}/>
                                 <h4 className="mt-2 mb-2 font-lato font-bold text-lg text-center leading-2">{team.name}</h4>
                                 <p className="font-lato text-center">{team.country} - {team.founded}</p>
@@ -71,6 +90,32 @@ function Home() {
                         )
                     }
                 </div>
+                {
+                    showModalDetails &&
+                    <PortalModal
+                        handleClose={()=>{setShowModalDetails(false)}}>
+                        <div className="flex flex-col mt-8">
+                            <div className="flex flex-col items-center">
+                                <img className="w-24 h-auto" src={teamSelected.logo} alt="Logo"/>
+                                <div className="info mt-4">
+                                    <h4>{teamSelected.name}</h4>
+                                    <p><b>País: </b>{teamSelected.country}</p>
+                                    <p><b>Año de fundación: </b>{teamSelected.founded}</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col mt-6 items-center">
+                                <img className="w-48 h-auto rounded-xl" src={teamSelected.imageStadium} alt="Stadium"/>
+                                <div className="info mt-4">
+                                    <h4>{teamSelected.stadium}</h4>
+                                    <p><b>Ciudad: </b>{teamSelected.cityStadium}</p>
+                                    <p><b>Ubicación: </b>{teamSelected.locationStadium}</p>
+                                    <p><b>Capacidad: </b>{teamSelected.capacityStadium} espectadores.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </PortalModal>
+                }
+                
             {/* </div> */}
         </section>
       );

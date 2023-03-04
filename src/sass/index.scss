@@ -1,6 +1,7 @@
-@import "./global";
-@import "./fonts";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./global";
+@import "./fonts";
+@import "./components/molecules/modal";
