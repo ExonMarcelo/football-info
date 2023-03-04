@@ -39,21 +39,6 @@ const PortalModal = ({title, children, handleClose}) => {
                 </div>
             </div>
         </div>, 
-        // <div className="portal-container">
-        //     <div className="modal">
-        //         <div className="modal__container">
-        //             <div className="modal__container__header">
-        //                 <h3>{title}</h3>
-        //                 <div className="icon-close" onClick={()=> handleClose()}>
-        //                     {/* <img src={iconClose}/> */}
-        //                 </div>
-        //             </div>
-        //             <div className="modal__container__body">
-        //                 {children}
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>, 
       divPortal
     )
   }
