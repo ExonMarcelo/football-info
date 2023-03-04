@@ -15,7 +15,13 @@ export const searchTeams = async ({team = 'barcelona'}) => {
         const url = `${baseUrl}/teams?search=${team}`;
         const resp  = await fetch(url, config)
         const data = await resp.json();
-        return data.response;
+        const teamsMapped = data.response.map(({team, venue})=>{
+            return{
+                team,
+                stadium: venue
+            }
+        })
+        return teamsMapped;
     }
     catch(e){
         console.log("Error api")
