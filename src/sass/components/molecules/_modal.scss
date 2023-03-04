@@ -8,44 +8,7 @@
 }
 
 .modal{
-    
-    // position: fixed;
-    // z-index: 999;
-    // height: 100vh;
-    // width: 100vw;
-    // top: 0;
-    // left: 0;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // background: rgba(3,5,15,0.8);
-    // &__container{
-    //     background-color: white;
-    //     padding: 16px 24px 24px 24px;
-    //     border-radius: 16px;
-    //     position: relative;
-    //     max-width: 336px;
-    //     width: 336px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     &__header{
-    //         display: flex;
-    //         justify-content: space-between;
-    //         width: 100%;
-    //         align-items: center;
-    //         h3{
-    //             font-family: "Lato", sans-serif;
-    //             font-style: normal;
-    //             font-weight: 900;
-    //             font-size: 20px;
-    //             line-height: 24px;
-    //             color: #333;
-    //         }
-    //         .icon-close{
-    //             width: 24px;
-    //             height: 24px;
-    //             cursor: pointer;
-    //         }
-    //     }
-    // }
+    &__container{
+        max-height: calc(100vh - 128px);
+    }
 }

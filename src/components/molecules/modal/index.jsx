@@ -18,17 +18,18 @@ const PortalModal = ({title, children, handleClose}) => {
                             flex items-center justify-center 
                             bg-neutral-700 bg-opacity-70">
                 <div className="modal__container container w-80 p-8 bg-slate-50 rounded-xl 
-                                relative box-border max-h-screen overflow-y-scroll
-                                scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16]">
+                                relative box-border max-h-screen overflow-auto
+                                md:w-[800px]
+                                ">
                     <div className="modal__container__header">
                         {
                             title &&
                             <h3 className="mt-4 text-lg font-lato font-bold">{title}</h3>
                         }
-                        <div className="icon-close absolute top-3 right-3
-                                        flex gap-1" onClick={()=> handleClose()}>
+                        <div className="icon-close absolute top-4 right-4 cursor-pointer
+                                        flex gap-2 justify-center items-center" onClick={()=> handleClose()}>
                             {/* <img src={iconClose}/> */}
-                            <span>Cerrar</span>
+                            <span className="font-lato text-sm font-semibold text-slate-700">Cerrar</span>
                             <i></i>
                         </div>
                     </div>
@@ -38,21 +39,6 @@ const PortalModal = ({title, children, handleClose}) => {
                 </div>
             </div>
         </div>, 
-        // <div className="portal-container">
-        //     <div className="modal">
-        //         <div className="modal__container">
-        //             <div className="modal__container__header">
-        //                 <h3>{title}</h3>
-        //                 <div className="icon-close" onClick={()=> handleClose()}>
-        //                     {/* <img src={iconClose}/> */}
-        //                 </div>
-        //             </div>
-        //             <div className="modal__container__body">
-        //                 {children}
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>, 
       divPortal
     )
   }
