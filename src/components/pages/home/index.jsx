@@ -2,6 +2,9 @@ import { useState, useRef } from "react";
 import useTeams from "../../../hooks/useTeams";
 import PortalModal from "../../molecules/modal";
 
+import iconInformation from '../../../assets/ic-information.png';
+import iconBoxEmpty from '../../../assets/ic-box-empty.png';
+
 function Home() {
     const [formData, setFormData]= useState({query: ""})
     const [showModalDetails, setShowModalDetails]= useState(false);
@@ -40,6 +43,21 @@ function Home() {
         });
         setShowModalDetails(true)
     }
+
+    const SectionInformation = ({type, text}) =>{
+        const typeInfo = {
+            "info": iconInformation,
+            "empty": iconBoxEmpty
+        }
+
+        return (
+            <div className="block-info w-full h-32 md:h-72 lg:h-96 flex flex-col items-center justify-center
+                            bg-slate-100 rounded-lg gap-4">
+                <img src={typeInfo[type]} alt="icon info" className="w-8 h-8" />
+                <p>{text}</p>
+            </div>
+        )
+    }
     
     return ( 
         <section className="container p-6">
@@ -67,11 +85,11 @@ function Home() {
                 </form>
                 {
                     firstTimeRef.current  &&
-                    <p>Realiza una busqueda para ver resultados</p>
+                    <SectionInformation type="info" text="Realiza una busqueda para ver resultados" />
                 }
                 {
-                    (teams.length === 0 && !loading && !firstTimeRef.current)  &&
-                    <p>No se encontraron resultados</p>
+                    (teams.length === 0 && !loading && !firstTimeRef.current)  && 
+                    <SectionInformation type="empty" text="No se encontraron resultados" />
                 }
                 <div className="results grid grid-cols-4 md:grid-cols-6 gap-4 xl:grid-cols-12">
                     {
