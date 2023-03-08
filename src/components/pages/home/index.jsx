@@ -1,16 +1,14 @@
 import { HomeContextProvider} from "../../../context/DataContext";
-import FormSearch from "../../molecules/formSearch";
+import SectionHeader from "../../organisms/SectionHeader";
 import SectionResults from "../../organisms/SectionResults";
 
 function Home() {
     return ( 
         <HomeContextProvider>
-            <section className="container p-6">
-                <h1 className="text-3xl font-lato font-bold leading-8 
-                            text-gray-700 mb-8">Buscador de Equipos</h1>
-                <FormSearch/>
+            <main className="flex flex-col p-6">
+                <SectionHeader/>
                 <SectionResults/>
-            </section>
+            </main>
         </HomeContextProvider>
       );
 }

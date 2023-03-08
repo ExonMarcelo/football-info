@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import DataContext from "../../../context/DataContext"
 import Skeleton from "../../atoms/Skeleton"
-import SectionInformation from "../../molecules/SectionInformation"
-import Modal from "../../molecules/modal";
+import SectionInformation from "../SectionInformation"
+import Modal from "../modal";
+import Infoteam from "../../molecules/infoTeam";
+import Card from "../../molecules/card";
 
 const SectionResults = ()=>{
     const {homeContext} = useContext(DataContext);
@@ -26,7 +28,7 @@ const SectionResults = ()=>{
     }
 
     return(
-        <>
+        <section className="container">
             {
                 isFirstSearch  &&
                 <SectionInformation type="info" text="Realiza una busqueda para ver resultados" />
@@ -42,15 +44,14 @@ const SectionResults = ()=>{
                         <Skeleton key={key} extraClass="col-span-2 h-[280px]"/>
                     ):
                     teams.map(({team, stadium}, index) => 
-                        <div className="col-span-2
-                                        rounded-lg bg-slate-100 p-8
-                                        flex flex-col justify-center items-center cursor-pointer
-                                        " key={index}
-                                        onClick={()=>{viewInfoTeam(team, stadium)}}>
-                            <img src={team.logo} alt={team.name}/>
-                            <h4 className="mt-2 mb-2 font-lato font-bold text-lg text-center leading-2">{team.name}</h4>
-                            <p className="font-lato text-center">{team.country} - {team.founded}</p>
-                        </div>
+                        <Card
+                            index={index}
+                            logo={team.logo}
+                            name={team.name}
+                            country={team.country}
+                            founded={team.founded}
+                            handleClick={()=>{viewInfoTeam(team, stadium)}} 
+                            />
                     )
                 }
             </div>
@@ -58,42 +59,10 @@ const SectionResults = ()=>{
                 showModalDetails &&
                 <Modal
                     handleClose={()=>{setShowModalDetails(false)}}>
-                    <div className="flex flex-col mt-8 text-center
-                                    md:flex-row md:justify-center md:items-center">
-                        <div className="flex flex-col items-center md:pr-10">
-                            <img className="w-24 h-auto md:w-36" src={teamSelected.logo} alt="Logo" loading="lazy"/>
-                            <div className="info mt-4">
-                                <h4 className="font-lato font-bold text-lg text-slate-700">{teamSelected.name}</h4>
-                                <p className="mt-1 text-sm text-slate-700"><b>País: </b>{teamSelected.country}</p>
-                                <p className="mt-1 text-sm text-slate-700"><b>Año de fundación: </b>{teamSelected.founded}</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col mt-6 items-center border-t-[1px] pt-8
-                                        md:border-t-[0px] md:pt-0 md:border-l-[1px] md:pl-10">
-                            <img className="w-48 md:w-72 h-auto rounded-xl" src={teamSelected.imageStadium} alt="Stadium" loading="lazy"/>
-                            <div className="info mt-4">
-                                {
-                                    teamSelected.stadium &&
-                                    <h4 className="font-lato font-bold text-md text-slate-700">{teamSelected.stadium}</h4>
-                                }
-                                {
-                                    teamSelected.cityStadium &&
-                                    <p className="mt-1 text-sm text-slate-700"><b>Ciudad: </b>{teamSelected.cityStadium}</p>
-                                }
-                                {
-                                    teamSelected.locationStadium &&
-                                    <p className="mt-1 text-sm text-slate-700"><b>Ubicación: </b>{teamSelected.locationStadium}</p>
-                                }
-                                {
-                                    teamSelected.capacityStadium &&
-                                    <p className="mt-1 text-sm text-slate-700"><b>Capacidad: </b>{teamSelected.capacityStadium?.toLocaleString('es-PE')} espectadores.</p>
-                                }
-                            </div>
-                        </div>
-                    </div>
+                    <Infoteam team={teamSelected}/>
                 </Modal>
-                }
-        </>
+            }
+        </section>
     );
 }
 
