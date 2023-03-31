@@ -3,17 +3,23 @@ import useTeams from "../../../hooks/useTeams";
 import DataContext from "../../../context/DataContext";
 
 const FormSearch = () => {
-    const [formData, setFormData]= useState({query: ""})
+    const [formData, setFormData]= useState({query: "barcelona"})
     const { teams, loading, getTeams } = useTeams();
     const queryRef = useRef("");
 
     const {homeContext, setHomeContext} = useContext(DataContext)
 
     useEffect(()=>{
+        getTeams({team: formData.query});
+        queryRef.current = formData.query;
+    },[])
+
+    useEffect(()=>{
         setHomeContext({
             ...homeContext,
             teams: teams,
-            isLoadingTeams: loading
+            isLoadingTeams: loading,
+            isFirstSearch: false
         })
     },[teams, loading])
 

@@ -45,7 +45,7 @@ const SectionResults = ()=>{
                     ):
                     teams.map(({team, stadium}, index) => 
                         <Card
-                            index={index}
+                            key={index}
                             logo={team.logo}
                             name={team.name}
                             country={team.country}
